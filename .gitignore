@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+.env
+.venv
+ENV/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Test outputs
+*.log
+*.out
+*.err
+
+# OS
+.DS_Store
+desktop.ini
+
+# Personal notes (optional — remove if you want to track these)
+scratch.py
+temp/
+todo.txt
