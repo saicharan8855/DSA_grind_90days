@@ -19,9 +19,8 @@ A structured **90-day DSA grind plan** built specifically for a **Machine Learni
 
 - ✅ 90 problems, 1 per day, zero skips
 - ✅ Topics ordered by interview frequency for ML/DS roles
-- ✅ Each solution has a `notes.md` explaining the approach
 - ✅ Trimmed hard DP (not needed for ML internship rounds)
-- ✅ Consistent daily commits — portfolio-grade repo
+- ✅ Consistent daily commits
 
 ---
 
