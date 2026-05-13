@@ -7,6 +7,13 @@ class Solution(object):
             for j in range(i + 1, n):
                 if nums[i] + nums[j] == target:
                     return [i, j]
+                
+"""
+complexity
+Time : O(n²) — two nested loops check all pairs in the worst case.
+
+Space : O(1) — only loop variables i, j, and n are used, no extra data structure.
+"""
 
     # Approach 2 : Hashmap (optimal)
     def twoSum(self, nums, target):
@@ -20,7 +27,7 @@ class Solution(object):
 """ 
 Complexity
 
-Time : O(n²)  all pairs checked in worst case.
+Time: O(n)  each element is processed once with O(1) average-time hash operations.
+Space: O(n)  in the worst case the dictionary stores up to n entries.
 
-Space : O(1)  only a few variables used.
 """
