@@ -1,8 +1,8 @@
-\# Two Sum - Python Solution
+# Two Sum - Python Solution
 
 
 
-\## Problem Statement
+## Problem Statement
 
 Given an array of integers nums and an integer target, return the indices
 
@@ -18,7 +18,7 @@ use the same element twice. You can return the answer in any order.
 
 
 
-\## Examples
+## Examples
 
 
 
@@ -50,7 +50,7 @@ Example 3:
 
 
 
-\## Constraints
+## Constraints
 
 &#x20; - 2 <= nums.length <= 10^4
 
@@ -64,7 +64,7 @@ Example 3:
 
 
 
-\## Intuition
+## Intuition
 
 The naive idea is to try all pairs and check whether their sum equals target.
 
@@ -84,7 +84,7 @@ is a constant-time lookup in a hash map (Python dict).
 
 
 
-\## Brute-force Approach (O(n^2))
+## Brute-force Approach (O(n^2))
 
 
 
@@ -122,7 +122,7 @@ This is straightforward but too slow for large arrays.
 
 
 
-\## Optimized Hash Map Approach (O(n))
+## Optimized Hash Map Approach (O(n))
 
 
 
