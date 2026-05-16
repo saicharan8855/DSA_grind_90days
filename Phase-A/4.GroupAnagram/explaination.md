@@ -1,8 +1,8 @@
-\# Group Anagrams – Frequency-Count (Optimal) Approach
+# Group Anagrams – Frequency-Count (Optimal) Approach
 
 
 
-\## What’s the problem asking?
+## What’s the problem asking?
 
 
 
@@ -16,7 +16,7 @@ Example:
 
 
 
-\- `\["eat","tea","tan","ate","nat","bat"]`  
+- `\["eat","tea","tan","ate","nat","bat"]`  
 
 &#x20; Possible output (order doesn’t matter):  
 
@@ -32,7 +32,7 @@ Same idea as \*valid anagram\*, but now you must group \*\*many\*\* words at onc
 
 
 
-\---
+---
 
 
 
@@ -44,11 +44,11 @@ Anagrams share the \*\*same character frequency pattern\*\*:
 
 
 
-\- `"eat"` → one `e`, one `a`, one `t`  
+- `"eat"` → one `e`, one `a`, one `t`  
 
-\- `"tea"` → one `t`, one `e`, one `a`  
+- `"tea"` → one `t`, one `e`, one `a`  
 
-\- `"ate"` → one `a`, one `t`, one `e`
+- `"ate"` → one `a`, one `t`, one `e`
 
 
 
@@ -70,11 +70,11 @@ So if you:
 
 
 
-\---
+---
 
 
 
-\## The optimal code (frequency-count hash key)
+## The optimal code (frequency-count hash key)
 
 
 
@@ -114,19 +114,19 @@ def group\_anagrams\_optimal(strs):
 
 
 
-\- `anagram\_map`: maps a “frequency fingerprint” → list of words.  
+- `anagram\_map`: maps a “frequency fingerprint” → list of words.  
 
-\- `count`: captures “how many a’s, how many b’s, …, how many z’s”.  
+- `count`: captures “how many a’s, how many b’s, …, how many z’s”.  
 
-\- `key`: tuple version of `count`, used as a dictionary key.\[web:24]\[web:26]\[web:29]
-
-
-
-\---
+- `key`: tuple version of `count`, used as a dictionary key.\[web:24]\[web:26]\[web:29]
 
 
 
-\## Walking through an example step-by-step
+---
+
+
+
+## Walking through an example step-by-step
 
 
 
@@ -142,7 +142,7 @@ strs = \["eat", "tea", "tan", "ate", "nat", "bat"]
 
 
 
-\### 1) Initialize the data structure
+### 1) Initialize the data structure
 
 
 
@@ -154,15 +154,15 @@ anagram\_map = defaultdict(list)
 
 
 
-\- Empty map initially, but any new key will start with an empty list automatically.\[web:22]\[web:24]
+- Empty map initially, but any new key will start with an empty list automatically.\[web:22]\[web:24]
 
 
 
-\---
+---
 
 
 
-\### 2) Process `"eat"`
+### 2) Process `"eat"`
 
 
 
@@ -180,15 +180,15 @@ Now loop over characters:
 
 
 
-\- See `'e'`:  
+- See `'e'`:  
 
 &#x20; - `ord('e') - ord('a')` → index 4  
 
 &#x20; - `count\[4] += 1`
 
-\- See `'a'`: index 0 → `count\[0] += 1`
+- See `'a'`: index 0 → `count\[0] += 1`
 
-\- See `'t'`: index 19 → `count\[19] += 1`
+- See `'t'`: index 19 → `count\[19] += 1`
 
 
 
@@ -196,11 +196,11 @@ So `count` looks like (showing only non-zero indices conceptually):
 
 
 
-\- index 0 (`'a'`) → 1  
+- index 0 (`'a'`) → 1  
 
-\- index 4 (`'e'`) → 1  
+- index 4 (`'e'`) → 1  
 
-\- index 19 (`'t'`) → 1  
+- index 19 (`'t'`) → 1  
 
 
 
@@ -222,11 +222,11 @@ Now `anagram\_map` has one entry where that frequency pattern maps to `\["eat"]`
 
 
 
-\---
+---
 
 
 
-\### 3) Process `"tea"`
+### 3) Process `"tea"`
 
 
 
@@ -244,11 +244,11 @@ Loop over `'t'`, `'e'`, `'a'`:
 
 
 
-\- `'t'` → index 19 → +1  
+- `'t'` → index 19 → +1  
 
-\- `'e'` → index 4 → +1  
+- `'e'` → index 4 → +1  
 
-\- `'a'` → index 0 → +1  
+- `'a'` → index 0 → +1  
 
 
 
@@ -274,11 +274,11 @@ Now that same key’s group is `\["eat", "tea"]`.
 
 
 
-\---
+---
 
 
 
-\### 4) Process `"tan"` and `"nat"`
+### 4) Process `"tan"` and `"nat"`
 
 
 
@@ -286,11 +286,11 @@ For `"tan"`:
 
 
 
-\- `'t'` → index 19  
+- `'t'` → index 19  
 
-\- `'a'` → index 0  
+- `'a'` → index 0  
 
-\- `'n'` → index 13  
+- `'n'` → index 13  
 
 
 
@@ -300,11 +300,10 @@ So they share another key, and that group becomes `\["tan", "nat"]`.
 
 
 
-\---
+---
 
 
-
-\### 5) Process `"ate"`
+### 5) Process `"ate"`
 
 
 
@@ -314,11 +313,11 @@ The corresponding list becomes `\["eat", "tea", "ate"]`.
 
 
 
-\---
+---
 
 
 
-\### 6) Process `"bat"`
+### 6) Process `"bat"`
 
 
 
@@ -326,11 +325,11 @@ New pattern:
 
 
 
-\- `'b'` → index 1  
+- `'b'` → index 1  
 
-\- `'a'` → index 0  
+- `'a'` → index 0  
 
-\- `'t'` → index 19  
+- `'t'` → index 19  
 
 
 
@@ -338,11 +337,11 @@ Different from all previous keys, so `"bat"` starts its own group.\[web:26]\[web
 
 
 
-\---
+---
 
 
 
-\### 7) Final result
+### 7) Final result
 
 
 
@@ -350,11 +349,11 @@ At the end, `anagram\_map`’s values are:
 
 
 
-\- `\["eat", "tea", "ate"]`
+- `\["eat", "tea", "ate"]`
 
-\- `\["tan", "nat"]`
+- `\["tan", "nat"]`
 
-\- `\["bat"]`
+- `\["bat"]`
 
 
 
@@ -374,11 +373,11 @@ Order of groups or elements inside groups does not matter.\[web:16]\[web:29]
 
 
 
-\---
+---
 
 
 
-\## Why use the frequency-array key instead of sorting?
+## Why use the frequency-array key instead of sorting?
 
 
 
@@ -390,11 +389,11 @@ With the frequency array approach:
 
 
 
-\- For each word:
+- For each word:
 
 &#x20; - Building the `count` array is `O(K)` (one pass over characters).\[web:23]\[web:26]\[web:29]
 
-\- No per-string sorting step.
+- No per-string sorting step.
 
 
 
@@ -402,9 +401,9 @@ So if:
 
 
 
-\- `n` = number of strings  
+- `n` = number of strings  
 
-\- `K` = max length of a string  
+- `K` = max length of a string  
 
 
 
@@ -412,9 +411,9 @@ Then:
 
 
 
-\- \*\*Time Complexity\*\*: `O(n \* K)` (linear in total characters processed).\[web:20]\[web:26]\[web:29]  
+- \*\*Time Complexity\*\*: `O(n \* K)` (linear in total characters processed).\[web:20]\[web:26]\[web:29]  
 
-\- \*\*Space Complexity\*\*: `O(n \* K)` in the worst case (storing all strings + keys), though the key itself per group is of fixed length 26 for lowercase English.\[web:20]\[web:26]\[web:29]
+- \*\*Space Complexity\*\*: `O(n \* K)` in the worst case (storing all strings + keys), though the key itself per group is of fixed length 26 for lowercase English.\[web:20]\[web:26]\[web:29]
 
 
 
@@ -422,11 +421,11 @@ This is usually faster than `O(n \* K log K)` when `K` is large.
 
 
 
-\---
+---
 
 
 
-\## One-line takeaway
+## One-line takeaway
 
 
 
@@ -434,7 +433,7 @@ Convert each string into a 26-length character-frequency fingerprint, use that f
 
 
 
-\---
+---
 
 
 
