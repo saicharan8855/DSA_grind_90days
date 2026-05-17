@@ -26,7 +26,7 @@ class Solution(object):
 Time : O(n^2 * k log k)
 Space : O(n * k) 
 """
-    def group_anagrams_optimal(strs):
+    def group_anagrams_optimal(self , strs):
         anagram_map = defaultdict(list)
 
         for s in strs:
