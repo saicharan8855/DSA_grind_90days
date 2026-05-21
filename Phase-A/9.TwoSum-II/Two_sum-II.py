@@ -26,5 +26,5 @@ space : O(1)
 
 """ complexity :
 time : O(n)
-space :O(1)
+Space = O(1)
 """
